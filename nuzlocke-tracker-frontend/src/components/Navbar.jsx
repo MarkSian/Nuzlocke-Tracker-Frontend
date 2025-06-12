@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useSetAtom } from 'jotai';
 import { userAtom, currentRunAtom } from '../atoms';
+import axiosInstance from '../api/connector';
 
 const Navbar = () => {
     const navigate = useNavigate();
