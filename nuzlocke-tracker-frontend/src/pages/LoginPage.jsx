@@ -25,14 +25,36 @@ const LoginPage = () => {
     };
 
     return (
-        <div className='flex flex-col items-center justify-center min-h-screen'>
-            <h2 className='text-xl mb-4'>Login</h2>
-            <form onSubmit={handleLogin} className='card bg-base-100 p-4 shadow w-80'>
-                <input name='username' placeholder='Username' className='input input-bordered mb-2' />
-                <input name='password' type='password' placeholder='Password' className='input input-bordered mb-4' />
-                <button type='submit' className='btn btn-primary'>Login</button>
-            </form>
-            <p className='mt-2'>Don't have an account? <Link to='/register' className='text-blue-500'>Register</Link></p>
+        <div className="flex flex-col items-center justify-center min-h-screen bg-base-200">
+            <div className="card w-96 bg-base-100 shadow-xl border-2 border-primary">
+                <div className="card-body">
+                    <h2 className="card-title justify-center mb-4 text-2xl text-primary">Login</h2>
+                    <form onSubmit={handleLogin} className="flex flex-col gap-4">
+                        <input
+                            name="username"
+                            placeholder="Username"
+                            className="input input-bordered input-primary border-2 border-primary w-full bg-base-100 text-base-content"
+                            required
+                        />
+                        <input
+                            name="password"
+                            type="password"
+                            placeholder="Password"
+                            className="input input-bordered input-primary border-2 border-primary w-full bg-base-100 text-base-content"
+                            required
+                        />
+                        <button type="submit" className="btn btn-primary w-full mt-2">
+                            Login
+                        </button>
+                    </form>
+                    <p className="mt-4 text-sm text-center">
+                        Don't have an account?
+                        <Link to="/register" className="link link-primary">
+                            Register
+                        </Link>
+                    </p>
+                </div>
+            </div>
         </div>
     );
 };
