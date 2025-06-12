@@ -1,7 +1,8 @@
 import { useAtom } from 'jotai';
 import { authTokenAtom, userAtom } from '../atoms';
-import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
+import axiosInstance from '../api/connector';
+
 
 const LoginPage = () => {
     const [, setToken] = useAtom(authTokenAtom);
@@ -13,7 +14,7 @@ const LoginPage = () => {
         const username = e.target.username.value;
         const password = e.target.password.value;
         try {
-            const res = await axios.post('http://localhost:4000/api/auth/login', { username, password });
+            const res = await axiosInstance.post('/auth/login', { username, password });
             localStorage.setItem('token', res.data.token);
             setToken(res.data.token);
             setUser(res.data.user);

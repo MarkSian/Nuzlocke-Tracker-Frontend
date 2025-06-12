@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import axiosInstance from '../api/connector';
 
 const RegisterPage = () => {
     const navigate = useNavigate();
@@ -9,11 +9,11 @@ const RegisterPage = () => {
         const username = e.target.username.value;
         const password = e.target.password.value;
         try {
-            await axios.post('http://localhost:4000/api/auth/register', { username, password });
+            await axiosInstance.post('/auth/register', { username, password });
             alert('Registration successful! You can now log in.');
             navigate('/login');
         } catch (err) {
-            alert('Registration failed. Username may already be taken.');
+            alert('Registration failed. ');
         }
     };
 
