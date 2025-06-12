@@ -1,5 +1,12 @@
+import NavBar from '../components/NavBar';
 function TrackerPage() {
-    return <div>This is the Tracker Page</div>;
+    return (
+        <>
+            <NavBar />
+            <div>This is the Tracker Page</div>
+
+        </>
+    )
 }
 
 export default TrackerPage;

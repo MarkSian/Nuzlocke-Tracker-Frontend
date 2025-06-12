@@ -1,5 +1,12 @@
+import NavBar from '../components/NavBar';
 function GravePage() {
-    return <div>This is the Grave Page</div>;
+    return (
+        <>
+            <NavBar />
+            <div>This is the Grave Page</div>
+
+        </>
+    )
 }
 
 export default GravePage;
