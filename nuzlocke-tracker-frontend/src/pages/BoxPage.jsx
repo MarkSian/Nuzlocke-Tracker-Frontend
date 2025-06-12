@@ -23,13 +23,15 @@ const BoxPage = () => {
         if (!currentRun) fetchRun();
     }, [currentRun, setCurrentRun]);
 
+    const boxPokemon = currentRun?.encounters?.filter(mon => mon.status === 'Captured') || [];
+
     return (
         <div className="p-4">
             <Navbar />
             <h2 className="text-xl font-bold mb-4">Boxed Pokémon</h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                {currentRun?.boxPokemon?.length > 0 ? (
-                    currentRun.boxPokemon.map((mon, index) => (
+                {boxPokemon.length > 0 ? (
+                    boxPokemon.map((mon, index) => (
                         <EncounterCard key={index} encounter={mon} />
                     ))
                 ) : (
