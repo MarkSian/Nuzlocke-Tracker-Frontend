@@ -3,8 +3,6 @@ import { atom } from 'jotai';
 
 export const userAtom = atom(null);
 export const currentRunAtom = atom(null);
-export const loadingAtom = atom(false);
-export const errorAtom = atom('');
 export const pokemonStatsAtom = atom({}); // For storing Pokémon stats fetched from the API
 
 // Additional state for encounter modifications and inputs
