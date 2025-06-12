@@ -1,11 +1,10 @@
 import { useAtom } from 'jotai';
-import { authTokenAtom, userAtom } from '../atoms';
+import { userAtom } from '../atoms';
 import { useNavigate, Link } from 'react-router-dom';
 import axiosInstance from '../api/connector';
 
 
 const LoginPage = () => {
-    const [, setToken] = useAtom(authTokenAtom);
     const [, setUser] = useAtom(userAtom);
     const navigate = useNavigate();
 
@@ -15,8 +14,8 @@ const LoginPage = () => {
         const password = e.target.password.value;
         try {
             const res = await axiosInstance.post('/auth/login', { username, password });
-            localStorage.setItem('token', res.data.token);
-            setToken(res.data.token);
+            // store user data in the atom
+            // http-only cookies are used, so we don't need to store the token in localStorage
             setUser(res.data.user);
             navigate('/tracker');
         } catch (err) {

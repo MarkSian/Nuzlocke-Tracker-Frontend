@@ -1,17 +1,22 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { useAtom } from 'jotai';
-import { authTokenAtom, currentRunAtom } from '../atoms';
+import { useSetAtom } from 'jotai';
+import { userAtom, currentRunAtom } from '../atoms';
 
 const Navbar = () => {
     const navigate = useNavigate();
-    const [, setToken] = useAtom(authTokenAtom);
-    const [, setRun] = useAtom(currentRunAtom);
+    const setUser = useSetAtom(userAtom);
+    const setCurrentRun = useSetAtom(currentRunAtom);
 
-    const handleLogout = () => {
-        setToken('');
-        setRun(null);
-        localStorage.removeItem('token');
-        navigate('/login');
+    const handleLogout = async () => {
+        try {
+            await axiosInstance.post('/auth/logout', {}, { withCredentials: true });
+        } catch (err) {
+            console.error('Logout error:', err);
+        } finally {
+            setUser(null); // Clear user data
+            setCurrentRun(null); // Clear current run data
+            navigate('/login');
+        }
     };
 
     return (

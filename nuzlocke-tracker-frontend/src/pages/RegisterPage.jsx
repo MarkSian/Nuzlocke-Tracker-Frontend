@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import axiosInstance from '../api/connector';
+// we can setUser as an atom later if we want to auto login after registration
 
 const RegisterPage = () => {
     const navigate = useNavigate();

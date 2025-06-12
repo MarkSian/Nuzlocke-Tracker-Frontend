@@ -1,6 +1,6 @@
 import { atom } from 'jotai';
 
-export const authTokenAtom = atom(localStorage.getItem('token') || '');
+// export const authTokenAtom = atom(localStorage.getItem('token') || '');
 export const userAtom = atom(null);
 export const currentRunAtom = atom(null);
 export const loadingAtom = atom(false);
