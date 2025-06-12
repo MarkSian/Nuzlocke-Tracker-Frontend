@@ -41,7 +41,7 @@ const RegisterPage = () => {
                         </button>
                     </form>
                     <p className="mt-4 text-sm text-center">
-                        Already have an account?
+                        Already have an account?{" "} {/*this line was added for spacing */}
                         <Link to="/login" className="link link-primary">
                             Log In
                         </Link>
