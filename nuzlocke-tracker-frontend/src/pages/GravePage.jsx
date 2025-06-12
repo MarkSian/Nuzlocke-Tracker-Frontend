@@ -1,8 +1,8 @@
-import NavBar from '../components/NavBar';
+import Navbar from '../components/Navbar';
 function GravePage() {
     return (
         <>
-            <NavBar />
+            <Navbar />
             <div>This is the Grave Page</div>
 
         </>

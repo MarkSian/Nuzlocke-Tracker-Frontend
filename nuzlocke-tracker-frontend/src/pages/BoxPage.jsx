@@ -1,8 +1,8 @@
-import NavBar from '../components/NavBar';
+import Navbar from '../components/Navbar';
 function BoxPage() {
     return (
         <>
-            <NavBar />
+            <Navbar />
             <div>This is the Box Page</div>
 
         </>

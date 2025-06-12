@@ -17,6 +17,7 @@
     https://axios-http.com/docs/interceptors
     c. Use interceptors before each request to check for a JWT token:`Bearer ${token}`; so it is associated to the authorization header if applicable. 
 6. Test Login and Register Page
+** cookie-parser was used to so that the token is not viewable in the local storage.
 
 # Phase 2:
 ## Tracker building
