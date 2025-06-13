@@ -17,6 +17,7 @@ const RunDetails = () => {
 
     if (!currentRun) return <p className="text-gray-500">Select a run to view details.</p>;
 
+    // Function to handle adding a new encounter
     const handleAddEncounter = async () => {
         try {
             const updatedRun = {
@@ -27,7 +28,6 @@ const RunDetails = () => {
                 }],
                 currentRoute: newEncounter.routeName
             };
-
             const res = await axiosInstance.put(`/nuzlocke/runs/${currentRun._id}`, updatedRun);
             setCurrentRun(res.data);
             setNewEncounter({ routeName: '', pokemonName: '', nickname: '', nature: '', level: '', pokemonId: '', image: '', status: '' });
@@ -36,6 +36,7 @@ const RunDetails = () => {
         }
     };
 
+    // Function to handle editing an encounter
     const handleEditEncounter = async () => {
         try {
             const updatedEncounters = [...currentRun.encounters];

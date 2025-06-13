@@ -1,4 +1,4 @@
-import AsyncSelect from 'react-select/async';
+import AsyncSelect from 'react-select/async'; // AsyncSelect allows for loading options asynchronously while searching
 import axios from 'axios';
 import { useAtom } from 'jotai';
 import { newEncounterAtom } from '../atoms';
@@ -7,13 +7,15 @@ import { useCallback } from 'react';
 const PokemonSelect = () => {
     const [newEncounter, setNewEncounter] = useAtom(newEncounterAtom);
 
+    // loadOptions is an async function that takes the user’s search input and returns a Promise that resolves to an array of options for the dropdown
+    // It’s called by AsyncSelect every time the user types in the search bar.
     const loadOptions = useCallback(async (inputValue) => {
         try {
             const res = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=1000`);
             const filtered = res.data.results.filter(p =>
                 p.name.toLowerCase().includes(inputValue.toLowerCase())
             );
-
+            // Promise.all is used to fetch details for multiple Pokémon in parallel, making the dropdown fast and responsive.
             const detailed = await Promise.all(
                 filtered.slice(0, 10).map(async (pokemon) => {
                     const detailsRes = await axios.get(pokemon.url);
@@ -50,6 +52,9 @@ const PokemonSelect = () => {
     };
 
     return (
+        // AsyncSelect calls loadOptions as you type.
+        // loadOptions fetches and returns options, using Promise.all for parallel requests.
+        // When you pick an option, handleChange updates your state.
         <div className="w-64">
             <AsyncSelect
                 cacheOptions

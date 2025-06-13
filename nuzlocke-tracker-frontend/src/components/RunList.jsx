@@ -12,6 +12,7 @@ const RunList = ({ runs, setRuns }) => {
         setCurrentRun(run);
     };
 
+    // Function to handle creating a new run
     const handleCreateRun = async () => {
         try {
             const newRun = {
@@ -25,7 +26,7 @@ const RunList = ({ runs, setRuns }) => {
                 rivalsDefeated: [],
                 bossesDefeated: []
             };
-
+            // route to create a new run
             const res = await axiosInstance.post('/nuzlocke/runs', newRun);
             setRuns(prev => [...prev, res.data]);
             setNewGameVersion('');
@@ -35,8 +36,10 @@ const RunList = ({ runs, setRuns }) => {
         }
     };
 
+    // Function to handle deleting a run
     const handleDeleteRun = async (id) => {
         try {
+            // route to delete a run
             await axiosInstance.delete(`/nuzlocke/runs/${id}`);
             setRuns(prev => prev.filter(run => run._id !== id));
         } catch (err) {

@@ -18,6 +18,7 @@ const EncounterForm = ({
     return (
         <div className="w-full flex justify-center">
             <div className="flex flex-wrap gap-4 mt-4 items-center justify-center bg-base-100 p-6 rounded-box border-2 border-primary shadow-xl max-w-4xl">
+                {/* Route Name Input */}
                 <input
                     type="text"
                     placeholder="Route Name"
@@ -25,7 +26,10 @@ const EncounterForm = ({
                     onChange={(e) => setEncounter({ ...encounter, routeName: e.target.value })}
                     className="input input-bordered input-primary border-2 border-primary w-48 bg-base-100 text-base-content"
                 />
+                {/* Pokemon Search Bar */}
                 <PokemonSelect editing={editingIndex !== null} />
+
+                {/* Nickname Input */}
                 <input
                     type="text"
                     placeholder="Nickname (optional)"
@@ -33,6 +37,8 @@ const EncounterForm = ({
                     onChange={(e) => setEncounter({ ...encounter, nickname: e.target.value })}
                     className="input input-bordered input-primary border-2 border-primary w-40 bg-base-100 text-base-content"
                 />
+
+                {/* Nature Input */}
                 <input
                     type="text"
                     placeholder="Nature"
@@ -40,6 +46,8 @@ const EncounterForm = ({
                     onChange={(e) => setEncounter({ ...encounter, nature: e.target.value })}
                     className="input input-bordered input-primary border-2 border-primary w-32 bg-base-100 text-base-content"
                 />
+
+                {/* Level Input */}
                 <input
                     type="number"
                     placeholder="Level"
@@ -47,11 +55,13 @@ const EncounterForm = ({
                     onChange={(e) => setEncounter({ ...encounter, level: e.target.value })}
                     className="input input-bordered input-primary border-2 border-primary w-24 bg-base-100 text-base-content"
                 />
+
+                {/* Status Select */}
                 <select
                     className="select select-primary border-2 border-primary w-32 bg-base-100 text-base-content"
                     value={encounter.status || 'Captured'}
                     onChange={(e) => setEncounter({ ...encounter, status: e.target.value })}
-                    style={{ color: '#18181b', backgroundColor: '#f3f4f6' }} // fallback for browsers that ignore Tailwind
+                    style={{ color: '#18181b', backgroundColor: '#f3f4f6' }} // fallback for ignoring TailwindCSS
                 >
                     <option value="Captured">Captured</option>
                     <option value="Fainted">Fainted</option>

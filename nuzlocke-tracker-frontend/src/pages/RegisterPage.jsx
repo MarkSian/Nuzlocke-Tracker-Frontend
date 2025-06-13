@@ -5,11 +5,13 @@ import axiosInstance from '../api/connector';
 const RegisterPage = () => {
     const navigate = useNavigate();
 
+    // Function to handle registration
     const handleRegister = async (e) => {
         e.preventDefault();
         const username = e.target.username.value;
         const password = e.target.password.value;
         try {
+            // post request to register route
             await axiosInstance.post('/auth/register', { username, password });
             alert('Registration successful! You can now log in.');
             navigate('/login');

@@ -8,11 +8,13 @@ const LoginPage = () => {
     const [, setUser] = useAtom(userAtom);
     const navigate = useNavigate();
 
+    // Function to handle login
     const handleLogin = async (e) => {
         e.preventDefault();
         const username = e.target.username.value;
         const password = e.target.password.value;
         try {
+            // post request to login route
             const res = await axiosInstance.post('/auth/login', { username, password }, { withCredentials: true });
             // store user data in the atom
             // http-only cookies are used, so we don't need to store the token in localStorage
