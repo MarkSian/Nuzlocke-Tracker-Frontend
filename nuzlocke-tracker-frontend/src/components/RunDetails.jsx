@@ -76,10 +76,12 @@ const RunDetails = () => {
 
     return (
         <div className="mt-6">
-            <h2 className="text-xl font-bold mb-2 text-secondary">Run Details</h2>
-            <p><strong>Run Name:</strong> {currentRun.runName || 'Unnamed Run'}</p>
-            <p><strong>Game Version:</strong> {currentRun.gameVersion}</p>
-            <p><strong>Current Route:</strong> {currentRun.currentRoute || 'Not set'}</p>
+            <div className="mt-12">
+                <h2 className="text-xl font-bold mb-2 text-secondary">Run Details</h2>
+                <p><strong>Run Name:</strong> {currentRun.runName || 'Unnamed Run'}</p>
+                <p><strong>Game Version:</strong> {currentRun.gameVersion}</p>
+                <p><strong>Current Route:</strong> {currentRun.currentRoute || 'Not set'}</p>
+            </div>
 
             <EncounterForm
                 editingIndex={editingIndex}

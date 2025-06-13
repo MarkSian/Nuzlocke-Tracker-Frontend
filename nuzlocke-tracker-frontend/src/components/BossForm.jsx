@@ -22,21 +22,25 @@ const BossForm = () => {
     };
 
     return (
-        <div className="mt-4">
+        <div className="mt-7">
             <h3 className="text-lg font-semibold text-primary mb-2">Bosses Defeated</h3>
-            <div className="flex gap-2 mb-2">
-                <input
-                    type="text"
-                    value={newBoss}
-                    onChange={(e) => setNewBoss(e.target.value)}
-                    placeholder="Boss Name"
-                    className="input input-bordered input-sm"
-                />
-                <button onClick={handleAddBoss} className="btn btn-sm btn-accent">Add</button>
+            <div className="mt-7 w-full flex justify-center my-4">
+                <div className="flex flex-row gap-4 items-center">
+                    <input
+                        type="text"
+                        value={newBoss}
+                        onChange={(e) => setNewBoss(e.target.value)}
+                        placeholder="Boss Name"
+                        className="input input-bordered input-primary border-2 border-primary w-48 bg-base-100 text-base-content"
+                    />
+                    <button onClick={handleAddBoss} className="btn btn-accent w-32">
+                        Add
+                    </button>
+                </div>
             </div>
-            <ul className="list-disc list-inside">
-                {currentRun.bossesDefeated.map((boss, idx) => (
-                    <li key={idx}>{boss}</li>
+            <ul className="mt-7 list-disc list-inside">
+                {currentRun.bossesDefeated.map((boss, id) => (
+                    <li key={id}>{boss}</li>
                 ))}
             </ul>
         </div>

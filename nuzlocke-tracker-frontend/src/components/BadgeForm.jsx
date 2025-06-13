@@ -22,21 +22,23 @@ const BadgeForm = () => {
     };
 
     return (
-        <div className="mt-4">
+        <div className="mt-7">
             <h3 className="text-lg font-semibold text-primary mb-2">Badges Earned</h3>
-            <div className="flex gap-2 mb-2">
-                <input
-                    type="text"
-                    value={newBadge}
-                    onChange={(e) => setNewBadge(e.target.value)}
-                    placeholder="Badge Name"
-                    className="input input-bordered input-sm"
-                />
-                <button onClick={handleAddBadge} className="btn btn-sm btn-accent">Add</button>
+            <div className="mt-7 w-full flex justify-center mb-2">
+                <div className="flex flex-row gap-4 items-center">
+                    <input
+                        type="text"
+                        value={newBadge}
+                        onChange={(e) => setNewBadge(e.target.value)}
+                        placeholder="Badge Name"
+                        className="input input-bordered input-primary border-2 border-primary w-48 bg-base-100 text-base-content"
+                    />
+                    <button onClick={handleAddBadge} className="btn btn-accent w-32">Add</button>
+                </div>
             </div>
-            <ul className="list-disc list-inside">
-                {currentRun.badges.map((badge, idx) => (
-                    <li key={idx}>{badge}</li>
+            <ul className="mt-7 list-disc list-inside">
+                {currentRun.badges.map((badge, id) => (
+                    <li key={id}>{badge}</li>
                 ))}
             </ul>
         </div>

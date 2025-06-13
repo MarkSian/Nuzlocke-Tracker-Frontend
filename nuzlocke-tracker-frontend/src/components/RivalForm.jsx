@@ -20,27 +20,29 @@ const RivalForm = () => {
             console.error('Failed to add rival:', err);
         }
     };
-
     return (
-        <div className="mt-4">
+        <div className="mt-7">
             <h3 className="text-lg font-semibold text-primary mb-2">Rivals Defeated</h3>
-            <div className="flex gap-2 mb-2">
-                <input
-                    type="text"
-                    value={newRival}
-                    onChange={(e) => setNewRival(e.target.value)}
-                    placeholder="Rival Name"
-                    className="input input-bordered input-sm"
-                />
-                <button onClick={handleAddRival} className="btn btn-sm btn-accent">Add</button>
+            <div className="mt-7 w-full flex justify-center mb-2">
+                <div className="flex flex-row gap-4 items-center">
+                    <input
+                        type="text"
+                        value={newRival}
+                        onChange={(e) => setNewRival(e.target.value)}
+                        placeholder="Rival Name"
+                        className="input input-bordered input-primary border-2 border-primary w-48 bg-base-100 text-base-content"
+                    />
+                    <button onClick={handleAddRival} className="btn btn-accent w-32">Add</button>
+                </div>
             </div>
-            <ul className="list-disc list-inside">
-                {currentRun.rivalsDefeated.map((rival, idx) => (
-                    <li key={idx}>{rival}</li>
+            <ul className="list-disc list-inside mt-7">
+                {currentRun.rivalsDefeated.map((rival, id) => (
+                    <li key={id}>{rival}</li>
                 ))}
             </ul>
         </div>
     );
 };
+
 
 export default RivalForm;
