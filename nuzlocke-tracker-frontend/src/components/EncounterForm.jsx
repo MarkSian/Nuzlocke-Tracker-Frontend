@@ -51,6 +51,7 @@ const EncounterForm = ({
                     className="select select-primary border-2 border-primary w-32 bg-base-100 text-base-content"
                     value={encounter.status || 'Captured'}
                     onChange={(e) => setEncounter({ ...encounter, status: e.target.value })}
+                    style={{ color: '#18181b', backgroundColor: '#f3f4f6' }} // fallback for browsers that ignore Tailwind
                 >
                     <option value="Captured">Captured</option>
                     <option value="Fainted">Fainted</option>
