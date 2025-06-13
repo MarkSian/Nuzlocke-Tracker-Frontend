@@ -13,6 +13,7 @@ const BadgeForm = () => {
                 ...currentRun,
                 badges: [...currentRun.badges, newBadge.trim()]
             };
+            // put request to update the run with the new badge
             const res = await axiosInstance.put(`/nuzlocke/runs/${currentRun._id}`, updatedRun);
             setCurrentRun(res.data);
             setNewBadge('');

@@ -13,6 +13,7 @@ const BossForm = () => {
                 ...currentRun,
                 bossesDefeated: [...currentRun.bossesDefeated, newBoss.trim()]
             };
+            // put request to update the run with the new boss
             const res = await axiosInstance.put(`/nuzlocke/runs/${currentRun._id}`, updatedRun);
             setCurrentRun(res.data);
             setNewBoss('');
