@@ -21,7 +21,7 @@ const Navbar = () => {
     };
 
     return (
-        <div className="navbar bg-neutral text-neutral-content shadow mb-6 rounded-box border-b-4 border-primary">
+        <div className="navbar bg-neutral text-neutral-content shadow mb-6 rounded-box border-b-4 border-primary px-4">
             <div className="flex-none gap-2">
                 <Link to="/tracker" className="btn btn-outline btn-primary btn-sm">Tracker</Link>
                 <Link to="/box" className="btn btn-outline btn-primary btn-sm">Box</Link>

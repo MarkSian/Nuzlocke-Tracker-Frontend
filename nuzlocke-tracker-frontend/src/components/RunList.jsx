@@ -16,7 +16,7 @@ const RunList = ({ runs, setRuns }) => {
         try {
             const newRun = {
                 gameVersion: newGameVersion,
-                runName: newRunName, // allow user to name the run
+                runName: newRunName,
                 currentRoute: '',
                 encounters: [],
                 boxPokemon: [],
@@ -45,40 +45,49 @@ const RunList = ({ runs, setRuns }) => {
     };
 
     return (
-        <div className="p-4">
-            <h1 className="text-2xl font-bold mb-4 text-primary">Your Nuzlocke Runs</h1>
-            <div className="flex gap-2 mb-4">
+        <div className="container mx-auto px-4 py-8">
+            <h1 className="text-2xl font-bold mb-6 text-primary">Your Nuzlocke Runs</h1>
+            <div className="flex flex-wrap gap-4 mb-8 justify-center items-center">
                 <input
                     type="text"
                     placeholder="Game Version"
                     value={newGameVersion}
                     onChange={(e) => setNewGameVersion(e.target.value)}
-                    className="input input-bordered input-primary w-48"
+                    className="input input-bordered input-primary w-48 bg-base-100 border-2 border-primary"
                 />
                 <input
                     type="text"
                     placeholder="Run Name"
                     value={newRunName}
                     onChange={(e) => setNewRunName(e.target.value)}
-                    className="input input-bordered input-primary w-48"
+                    className="input input-bordered input-primary w-48 bg-base-100 border-2 border-primary"
                 />
-                <button onClick={handleCreateRun} className="btn btn-success">Create Run</button>
+                <button onClick={handleCreateRun} className="btn btn-success">
+                    Create Run
+                </button>
             </div>
-            <div className="flex flex-wrap gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {runs.map(run => (
-                    <div key={run._id} className="flex items-center gap-2">
-                        <button
-                            onClick={() => handleSelectRun(run)}
-                            className="btn btn-primary"
-                        >
-                            {run.runName || 'Unnamed Run'} - {run.gameVersion}
-                        </button>
-                        <button
-                            onClick={() => handleDeleteRun(run._id)}
-                            className="btn btn-sm btn-error"
-                        >
-                            Delete
-                        </button>
+                    <div
+                        key={run._id}
+                        className="card bg-base-100 border-2 border-primary shadow-xl rounded-box p-6 flex flex-col items-center"
+                    >
+                        <h2 className="text-lg font-semibold text-primary mb-2">{run.runName || 'Unnamed Run'}</h2>
+                        <p className="text-base-content mb-4">{run.gameVersion}</p>
+                        <div className="flex gap-2">
+                            <button
+                                onClick={() => handleSelectRun(run)}
+                                className="btn btn-primary btn-sm"
+                            >
+                                Select
+                            </button>
+                            <button
+                                onClick={() => handleDeleteRun(run._id)}
+                                className="btn btn-error btn-sm"
+                            >
+                                Delete
+                            </button>
+                        </div>
                     </div>
                 ))}
             </div>
