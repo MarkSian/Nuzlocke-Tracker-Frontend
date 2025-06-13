@@ -1,5 +1,5 @@
 import { useAtom } from 'jotai';
-import { currentRunAtom, modifiedEncountersAtom, newEncounterAtom } from '../atoms';
+import { currentRunAtom, newEncounterAtom } from '../atoms';
 import EncounterCard from './EncounterCard';
 import EncounterForm from './EncounterForm';
 import { useState } from 'react';
@@ -11,7 +11,6 @@ import BossForm from './BossForm';
 const RunDetails = () => {
     const [currentRun, setCurrentRun] = useAtom(currentRunAtom);
     const [newEncounter, setNewEncounter] = useAtom(newEncounterAtom);
-    const [, setModifiedEncounters] = useAtom(modifiedEncountersAtom);
     const [error, setError] = useState('');
     const [editingIndex, setEditingIndex] = useState(null);
     const [editingEncounter, setEditingEncounter] = useState(null);
@@ -32,7 +31,6 @@ const RunDetails = () => {
             const res = await axiosInstance.put(`/nuzlocke/runs/${currentRun._id}`, updatedRun);
             setCurrentRun(res.data);
             setNewEncounter({ routeName: '', pokemonName: '', nickname: '', nature: '', level: '', pokemonId: '', image: '', status: '' });
-            setModifiedEncounters([]);
         } catch (err) {
             setError('Failed to add encounter.');
         }
