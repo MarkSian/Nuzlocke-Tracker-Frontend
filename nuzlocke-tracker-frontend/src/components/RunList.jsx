@@ -66,27 +66,29 @@ const RunList = ({ runs, setRuns }) => {
                     Create Run
                 </button>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                 {runs.map(run => (
                     <div
                         key={run._id}
-                        className="card bg-base-100 border-2 border-primary shadow-xl rounded-box p-6 flex flex-col items-center"
+                        className="card bg-base-100 border-2 border-primary shadow-xl rounded-box p-6 flex flex-col items-center transition-transform hover:scale-105 w-full max-w-xs mx-auto"
                     >
-                        <h2 className="text-lg font-semibold text-primary mb-2">{run.runName || 'Unnamed Run'}</h2>
-                        <p className="text-base-content mb-4">{run.gameVersion}</p>
-                        <div className="flex gap-2">
-                            <button
-                                onClick={() => handleSelectRun(run)}
-                                className="btn btn-primary btn-sm"
-                            >
-                                Select
-                            </button>
-                            <button
-                                onClick={() => handleDeleteRun(run._id)}
-                                className="btn btn-error btn-sm"
-                            >
-                                Delete
-                            </button>
+                        <div className="card-body w-full flex flex-col items-center">
+                            <h2 className="card-title text-lg font-semibold text-primary mb-2">{run.runName || 'Unnamed Run'}</h2>
+                            <p className="text-base-content mb-4">{run.gameVersion}</p>
+                            <div className="flex gap-2 mt-2">
+                                <button
+                                    onClick={() => handleSelectRun(run)}
+                                    className="btn btn-primary btn-sm"
+                                >
+                                    Select
+                                </button>
+                                <button
+                                    onClick={() => handleDeleteRun(run._id)}
+                                    className="btn btn-error btn-sm"
+                                >
+                                    Delete
+                                </button>
+                            </div>
                         </div>
                     </div>
                 ))}
