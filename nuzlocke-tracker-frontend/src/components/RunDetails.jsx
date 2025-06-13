@@ -77,6 +77,7 @@ const RunDetails = () => {
 
     return (
         <div className="mt-6">
+            {/* Display Run Details */}
             <div className="mt-12">
                 <h2 className="text-xl font-bold mb-2 text-secondary">Run Details</h2>
                 <p><strong>Run Name:</strong> {currentRun.runName || 'Unnamed Run'}</p>
@@ -93,17 +94,18 @@ const RunDetails = () => {
                 handleEditEncounter={handleEditEncounter}
             />
             {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
-
+            {/* Display Encounters */}
             <div className="mt-6">
                 <h3 className="text-lg font-semibold text-primary mb-2">Encounters</h3>
                 {currentRun.encounters.length === 0 ? (
                     <p className="text-gray-400">No encounters yet.</p>
                 ) : (
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"> {/* if there are encounters, map over them to display an EncouneterCard */}
                         {currentRun.encounters.map((enc, index) => (
                             <div key={enc._id || index} className="relative">
-                                <EncounterCard encounter={enc} />
+                                <EncounterCard encounter={enc} /> {/* EncounterCard */}
                                 <div className="absolute top-1 right-1 flex gap-1">
+                                    {/* Edit And Delete buttons */}
                                     <button
                                         className="btn btn-xs btn-warning"
                                         onClick={() => {
@@ -127,6 +129,7 @@ const RunDetails = () => {
             </div>
 
             <div className="mt-8">
+                {/* Display Rivals, Badges, Bosses: Gym Leaders, Elite 4, Champion */}
                 <h3 className="text-xl font-bold mb-4 text-primary">Additional Progress</h3>
                 <RivalForm />
                 <BadgeForm />

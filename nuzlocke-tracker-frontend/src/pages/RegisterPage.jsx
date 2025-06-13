@@ -27,6 +27,7 @@ const RegisterPage = () => {
                 <div className="card-body">
                     <h2 className="card-title justify-center mb-4 text-2xl text-primary">Register</h2>
                     <form onSubmit={handleRegister} className="flex flex-col gap-4">
+                        {/* Username and Password Inputs*/}
                         <input
                             name="username"
                             placeholder="Username"

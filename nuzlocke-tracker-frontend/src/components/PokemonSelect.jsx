@@ -9,7 +9,7 @@ const PokemonSelect = () => {
 
     // loadOptions is an async function that takes the user’s search input and returns a Promise that resolves to an array of options for the dropdown
     // It’s called by AsyncSelect every time the user types in the search bar.
-    const loadOptions = useCallback(async (inputValue) => {
+    const loadOptions = useCallback(async (inputValue) => { // useCallback is used to memoize the function, preventing unnecessary re-creations on every render.
         try {
             const res = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=1000`);
             const filtered = res.data.results.filter(p =>
@@ -17,7 +17,7 @@ const PokemonSelect = () => {
             );
             // Promise.all is used to fetch details for multiple Pokémon in parallel, making the dropdown fast and responsive.
             const detailed = await Promise.all(
-                filtered.slice(0, 10).map(async (pokemon) => {
+                filtered.slice(0, 10).map(async (pokemon) => { // limit to 10 results for performance sake
                     const detailsRes = await axios.get(pokemon.url);
                     const { name, id, sprites } = detailsRes.data;
                     return {
@@ -28,8 +28,8 @@ const PokemonSelect = () => {
                     };
                 })
             );
-
-            return detailed.map(p => ({
+            // AsyncSelect expects a label and a value for each option.
+            return detailed.map(p => ({ // map each pokemon to suit the format for AsyncSelect
                 label: (
                     <div className="flex items-center gap-2">
                         <img src={p.image} alt={p.label} className="w-6 h-6" />

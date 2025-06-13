@@ -3,15 +3,15 @@ import { currentRunAtom, newRivalAtom } from '../atoms/index';
 import axiosInstance from '../api/connector';
 
 const RivalForm = () => {
-    const [currentRun, setCurrentRun] = useAtom(currentRunAtom);
-    const [newRival, setNewRival] = useAtom(newRivalAtom);
+    const [currentRun, setCurrentRun] = useAtom(currentRunAtom); // bring in the current run data
+    const [newRival, setNewRival] = useAtom(newRivalAtom); // could've been done with useState, but using atoms for consistency sake.
 
     const handleAddRival = async () => {
         if (!newRival.trim()) return;
         try {
             const updatedRun = {
-                ...currentRun,
-                rivalsDefeated: [...currentRun.rivalsDefeated, newRival.trim()]
+                ...currentRun, // spread the existing run data so we don't lose any other properties
+                rivalsDefeated: [...currentRun.rivalsDefeated, newRival.trim()] // spread the existing rivals and add the new one
             };
             // put request to update the run with the new rival
             const res = await axiosInstance.put(`/nuzlocke/runs/${currentRun._id}`, updatedRun);
