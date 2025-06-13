@@ -22,6 +22,7 @@ const RegisterPage = () => {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-base-200">
+            <h1 className="text-4xl font-bold text-primary mb-12 mt-4">Nuzlocke Tracker</h1>
             <div className="card w-96 bg-neutral border-2 border-primary shadow-2xl">
                 <div className="card-body">
                     <h2 className="card-title justify-center mb-4 text-2xl text-primary">Register</h2>
