@@ -14,19 +14,30 @@ const Navbar = () => {
         } catch (err) {
             console.error('Logout error:', err);
         } finally {
-            setUser(null); // Clear user data
-            setCurrentRun(null); // Clear current run data
+            setUser(null);
+            setCurrentRun(null);
             navigate('/login');
         }
     };
 
     return (
-        <nav className='flex gap-4 mb-6'>
-            <Link to='/tracker' className='btn btn-sm'>Tracker</Link>
-            <Link to='/box' className='btn btn-sm'>Box</Link>
-            <Link to='/grave' className='btn btn-sm'>Grave</Link>
-            <button onClick={handleLogout} className='btn btn-sm btn-error'>Logout</button>
-        </nav>
+        <div className="navbar bg-neutral text-neutral-content shadow mb-6 rounded-box border-b-4 border-primary">
+            <div className="flex-none gap-2">
+                <Link to="/tracker" className="btn btn-outline btn-primary btn-sm">Tracker</Link>
+                <Link to="/box" className="btn btn-outline btn-primary btn-sm">Box</Link>
+                <Link to="/grave" className="btn btn-outline btn-primary btn-sm">Grave</Link>
+            </div>
+            <div className="flex-1 justify-center">
+                <Link to="/tracker" className="btn btn-ghost normal-case text-2xl text-primary-content font-bold tracking-wide">
+                    Nuzlocke Tracker
+                </Link>
+            </div>
+            <div className="flex-none">
+                <button onClick={handleLogout} className="btn btn-error btn-sm ml-2">
+                    Logout
+                </button>
+            </div>
+        </div>
     );
 };
 
