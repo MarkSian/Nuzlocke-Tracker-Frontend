@@ -1,5 +1,7 @@
 # Nuzlocke-Tracker-Frontend
 
+# Backend Repo: https://github.com/MarkSian/Nuzlocke-Tracker-BE
+
 # Phase 1:
 ## Core setup and File Structure
 1. Set up app entry with BrowserRouter
