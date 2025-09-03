@@ -35,7 +35,6 @@ The Nuzlocke Tracker is a full-stack web application designed to help Pokémon N
 - DaisyUI: A Tailwind CSS component library that provides pre-built UI components with DaisyUI class names.
 - Axios: A promise-based HTTP client for making API requests to the backend.
 - React Router DOM: For declarative routing within the single-page application.
-- jwt-decode: A small utility to decode JWTs in the browser.
 - react-select: A library for creating customizable select inputs with features like searching, multi-select, and clearable options.
 
 
